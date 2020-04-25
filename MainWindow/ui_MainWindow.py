@@ -7,6 +7,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
     QFontDatabase, QIcon, QKeySequence, QLinearGradient, QPalette, QPainter,
     QPixmap, QRadialGradient)
 from PySide2.QtWidgets import *
+from PyQt5 import QtCore, QtGui, QtWidgets
 import sys
 
 class Ui_MainWindow(object):
