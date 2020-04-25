@@ -3,6 +3,7 @@ Made by Frederik Ø. Elster
 HTX Roskilde
 Programmering B 3.4
 
+reee
 """
 import random
 import os
