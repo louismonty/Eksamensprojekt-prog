@@ -1,6 +1,6 @@
 import random 
 
-f = open("tekst.txt", "r")
+f = open("Eksamensprojekt-prog/Dansk_spil/tekst.txt", "r")
 vokaler = ["a","e","i","o","u","y"]
 
 tekst=[]
