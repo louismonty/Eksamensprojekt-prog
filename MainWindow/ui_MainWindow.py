@@ -9,7 +9,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 import sys
 
-class Ui_MainWindow(object):
+class Ui_MainWindow(object):    
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -37,10 +37,13 @@ class Ui_MainWindow(object):
         font1.setFamily(u"Times New Roman")
         font1.setPointSize(16)
         self.BtnMat.setFont(font1)
+        
         self.BtnProg = QPushButton(self.frame)
         self.BtnProg.setObjectName(u"BtnProg")
         self.BtnProg.setGeometry(QRect(310, 260, 180, 51))
         self.BtnProg.setFont(font1)
+        self.BtnProg.clicked.connect(self.Prog_clicked)
+        
         self.BtnDansk = QPushButton(self.frame)
         self.BtnDansk.setObjectName(u"BtnDansk")
         self.BtnDansk.setGeometry(QRect(310, 360, 180, 51))
@@ -75,3 +78,8 @@ class Ui_MainWindow(object):
         self.BtnForlad.setText(QCoreApplication.translate("MainWindow", u"Forlad", None))
         self.LblDato.setText(QCoreApplication.translate("MainWindow", u"Dato: ", None))
     # retranslateUi
+    
+    def Prog_clicked(self):
+        print("start program")
+        
+    
