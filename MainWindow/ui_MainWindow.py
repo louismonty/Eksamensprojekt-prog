@@ -37,6 +37,7 @@ class Ui_MainWindow(object):
         font1.setFamily(u"Times New Roman")
         font1.setPointSize(16)
         self.BtnMat.setFont(font1)
+        self.BtnMat.clicked.connect(self.Mat_clicked)
         
         self.BtnProg = QPushButton(self.frame)
         self.BtnProg.setObjectName(u"BtnProg")
@@ -48,10 +49,13 @@ class Ui_MainWindow(object):
         self.BtnDansk.setObjectName(u"BtnDansk")
         self.BtnDansk.setGeometry(QRect(310, 360, 180, 51))
         self.BtnDansk.setFont(font1)
+        self.BtnDansk.clicked.connect(self.Dansk_clicked)
+        
         self.BtnForlad = QPushButton(self.frame)
         self.BtnForlad.setObjectName(u"BtnForlad")
         self.BtnForlad.setGeometry(QRect(310, 460, 180, 51))
         self.BtnForlad.setFont(font1)
+        self.BtnForlad.clicked.connect(self.Forlad_clicked)
         self.LblDato = QLabel(self.centralwidget)
         self.LblDato.setObjectName(u"LblDato")
         self.LblDato.setGeometry(QRect(10, 550, 781, 20))
@@ -79,7 +83,17 @@ class Ui_MainWindow(object):
         self.LblDato.setText(QCoreApplication.translate("MainWindow", u"Dato: ", None))
     # retranslateUi
     
+    def Mat_clicked(self):
+        print("start Mattematik")
+        
     def Prog_clicked(self):
-        print("start program")
+        print("start Proggramering")
+        
+    def Dansk_clicked(self):
+        print("start Dansk")
+        
+    def Forlad_clicked(self):
+        print("stop")
+        
         
     
