@@ -16,6 +16,7 @@ from PySide2.QtGui import (QBrush, QColor, QConicalGradient, QCursor, QFont,
 from PySide2.QtWidgets import *
 
 
+
 class Ui_Intro(object):
     def setupUi(self, Form):
         if not Form.objectName():
