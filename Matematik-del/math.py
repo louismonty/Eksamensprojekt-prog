@@ -3,10 +3,10 @@ Made by Frederik Ø. Elster
 HTX Roskilde
 Programmering B 3.4
 
-reee
 """
 import random
 import os
+
 
 
 class math_problem:
@@ -15,13 +15,13 @@ class math_problem:
         self.x2 = x2
         self.point = point
         self.answer = False
-        self.list = []
+
         
     def random_numbers(self):
         self.number_one = random.randrange(self.x1, self.x2)
         self.number_two = random.randrange(self.x1, self.x2)
-        self.list.append([self.number_one, self.number_two])
-        print(self.list)
+        
+       
 
     def multiplication(self,count,level):
         self.random_numbers()
@@ -61,15 +61,15 @@ level_3 = math_problem(3,5,0.75)
 level_4 = math_problem(4,6,1)
 level_5 = math_problem(5,8,1.25)
 level_6 = math_problem(6,9,1.5)
-level_7 = math_problem(7,10,1.75)
-level_8 = math_problem(8,11,2)
-level_9 = math_problem(9,12,2.25)
-level_10 = math_problem(10,13,2.5)
-level_11 = math_problem(11,14,2.75)
-level_12 = math_problem(12,15,3)
-level_13 = math_problem(13,16,3.25)
-level_14 = math_problem(14,17,3.50)
-level_15 = math_problem(15,18,3.75)
+level_7 = math_problem(6,10,1.75)
+level_8 = math_problem(7,11,2)
+level_9 = math_problem(7,12,2.25)
+level_10 = math_problem(8,13,2.5)
+level_11 = math_problem(9,14,2.75)
+level_12 = math_problem(10,15,3)
+level_13 = math_problem(11,16,3.25)
+level_14 = math_problem(12,17,3.50)
+level_15 = math_problem(13,18,3.75)
 
 
 
@@ -150,12 +150,12 @@ def difficulty_menu():
     print("3. Hard")
 
     level = get_user_input(3)
-    if level == 3:
-        n = 0
-    elif level == 7:
-        n = 1
+    if level == 1:
+        n = 4
+    elif level == 2:
+        n = 8
     else:
-        n = 11
+        n = 12
     return n
 
 
@@ -164,7 +164,7 @@ def get_user_input(x):
     while user_input > x or user_input <= 0:
         print("Invalid menu option.")
         user_input = int(input("Please try again: "))
-    else:
+    else:    
         return user_input
 
 
@@ -216,13 +216,8 @@ def game_loop():
         score = levels[n].point_score(answer, score)
         display_result(total,correct,score)
 
-        """
-        #Test variabels
-        print("score:", score)
-        print("streak:", streak)
         print("n:", n)
-        print("correct:", correct)
-        print("Total:", total)
-        """
+     
+    
      
 game_loop()
