@@ -6,7 +6,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_Form(object):
     def loop(self):
-        f = open("tekst.txt", "r")
+        f = open("konvertering/tekst.txt", "r")
         vokaler = ["a","e","i","o","u","y"]
         tekst=[]
 

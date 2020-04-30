@@ -9,6 +9,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Dialog import Ui_Form
+from Math_chose import Ui_Math
 
 class Ui_MainWindow(object):
     def open_window_mat(self):

@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-from Mainwondow import stop as MainWindow
+from Math_dif import Ui_Math_2
 
 
 math_type = ""
@@ -41,9 +41,8 @@ class Ui_Math(object):
 
     def Multiply(self):
         math_type = "multiply"
-        stop()
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Math()
+        self.ui = Ui_Math_2()
         self.ui.setupUi(self.window)
         self.window.show()
         
@@ -51,14 +50,14 @@ class Ui_Math(object):
     def substracting(self):
         math_type = "Subtracting"
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Math()
+        self.ui = Ui_Math_2()
         self.ui.setupUi(self.window)
         self.window.show()
 
     def multiplication(self):
         math_type ="Multiplication"
         self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Math()
+        self.ui = Ui_Math_2()
         self.ui.setupUi(self.window)
         self.window.show()
 
