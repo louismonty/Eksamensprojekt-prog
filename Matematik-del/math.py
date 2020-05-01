@@ -20,8 +20,7 @@ class math_problem:
     def random_numbers(self):
         self.number_one = random.randrange(self.x1, self.x2)
         self.number_two = random.randrange(self.x1, self.x2)
-        
-       
+         
 
     def multiplication(self,count,level):
         self.random_numbers()
@@ -206,11 +205,11 @@ def game_loop():
         else:
             if streak == 0 or streak == -1:
                 streak -= 1
-                if streak == -2:
-                    if n ==  (start_n - 3):
-                        n = n
-                    else:
-                        n -= 1
+            if streak == -2:
+                if n == (start_n - 3):
+                    n = n
+                else:
+                    n -= 1
             streak = 0
 
         score = levels[n].point_score(answer, score)
