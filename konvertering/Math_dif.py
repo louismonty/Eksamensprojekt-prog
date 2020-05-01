@@ -12,19 +12,19 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 math_type = ""
 
-class Ui_Math(object):
+class Ui_Math_2(object):
     def setupUi(self, window):
         window.setObjectName("window")
         window.resize(421, 344)
         self.pushButton = QtWidgets.QPushButton(window)
         self.pushButton.setGeometry(QtCore.QRect(110, 60, 171, 71))
         self.pushButton.setObjectName("pushButton")
-        self.pushButton.clicked.connect(self.Multiply)
+        self.pushButton.clicked.connect(self.Easy)
         
         self.pushButton_2 = QtWidgets.QPushButton(window)
         self.pushButton_2.setGeometry(QtCore.QRect(110, 140, 171, 71))
         self.pushButton_2.setObjectName("pushButton_2")
-        self.pushButton_2.clicked.connect(self.substracting)
+        self.pushButton_2.clicked.connect(self.normal)
         
         self.label = QtWidgets.QLabel(window)
         self.label.setGeometry(QtCore.QRect(110, 10, 161, 41))
@@ -33,28 +33,28 @@ class Ui_Math(object):
         self.pushButton_5 = QtWidgets.QPushButton(window)
         self.pushButton_5.setGeometry(QtCore.QRect(110, 220, 171, 71))
         self.pushButton_5.setObjectName("pushButton_5")
-        self.pushButton_5.clicked.connect(self.multiplication)
+        self.pushButton_5.clicked.connect(self.Hard)
 
         self.retranslateUi(window)
         QtCore.QMetaObject.connectSlotsByName(window)
 
-    def Multiply(self):
-        math_type = "multiply"
+    def Easy(self):
+        math_type = "Easy"
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Math()
         self.ui.setupUi(self.window)
         self.window.show()
         
     
-    def substracting(self):
+    def normal(self):
         math_type = "Subtracting"
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Math()
         self.ui.setupUi(self.window)
         self.window.show()
 
-    def multiplication(self):
-        math_type ="Multiplication"
+    def Hard(self):
+        math_type ="Hard"
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Math()
         self.ui.setupUi(self.window)
@@ -64,9 +64,9 @@ class Ui_Math(object):
         _translate = QtCore.QCoreApplication.translate
         window.setWindowTitle(_translate("window", "window"))
         self.pushButton.setText(_translate("window", "Easy"))
-        self.pushButton_2.setText(_translate("window", ""))
+        self.pushButton_2.setText(_translate("window", "Normal"))
         self.label.setText(_translate("window", "Chose you ..."))
-        self.pushButton_5.setText(_translate("window", "Multiplication"))
+        self.pushButton_5.setText(_translate("window", "Hard"))
 
 
 if __name__ == "__main__":
