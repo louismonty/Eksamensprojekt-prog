@@ -8,7 +8,6 @@ import random
 import os
 
 
-
 class math_problem:
     def __init__(self,x1, x2, point):
         self.x1 = x1
@@ -190,7 +189,7 @@ def game_loop():
         
     while exit == False:
         total += 1
-        
+
         answer = math(total, n, math_type)
          
         if answer == True:
@@ -215,7 +214,7 @@ def game_loop():
         score = levels[n].point_score(answer, score)
         display_result(total,correct,score)
 
-        print("n:", n)
+       
      
     
      
