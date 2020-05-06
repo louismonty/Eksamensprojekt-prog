@@ -10,6 +10,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from Dialog import Ui_Form
 from Math_chose import Ui_Math
+from Intro_Ui import Ui_Intro
+from datetime import datetime
 
 class Ui_MainWindow(object):
     def open_window_mat(self):
@@ -22,6 +24,12 @@ class Ui_MainWindow(object):
     def open_window_dansk(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Form()
+        self.ui.setupUi(self.window)
+        self.window.show()
+    
+    def open_window_prog(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Intro()
         self.ui.setupUi(self.window)
         self.window.show()
 
@@ -63,6 +71,7 @@ class Ui_MainWindow(object):
         font.setPointSize(16)
         self.BtnProg.setFont(font)
         self.BtnProg.setObjectName("BtnProg")
+        self.BtnProg.clicked.connect(self.open_window_prog)
         
         self.BtnDansk = QtWidgets.QPushButton(self.frame)
         self.BtnDansk.setGeometry(QtCore.QRect(310, 360, 180, 51))
@@ -97,6 +106,8 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    
+    CurrentDate = datetime.now()
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
@@ -105,7 +116,8 @@ class Ui_MainWindow(object):
         self.BtnProg.setText(_translate("MainWindow", "Programmering"))
         self.BtnDansk.setText(_translate("MainWindow", "Dansk"))
         self.BtnForlad.setText(_translate("MainWindow", "Forlad"))
-        self.LblDato.setText(_translate("MainWindow", "Dato: "))
+        CurrentDate = datetime.now()
+        self.LblDato.setText(_translate("MainWindow", "Dato: " + str(CurrentDate)))
 
 
 
