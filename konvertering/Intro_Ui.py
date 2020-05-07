@@ -11,6 +11,11 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 
 class Ui_Intro(object):
+    def open_window_næste(self):
+        Form.close
+        self.window = QtWidgets.QMainWindow()
+        
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(804, 610)
@@ -23,7 +28,7 @@ class Ui_Intro(object):
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
         self.textBrowser = QtWidgets.QTextBrowser(Form)
-        self.textBrowser.setGeometry(QtCore.QRect(112, 100, 580, 410))
+        self.textBrowser.setGeometry(QtCore.QRect(112, 100, 620, 410))
         self.textBrowser.setObjectName("textBrowser")
         self.BtnNst = QtWidgets.QPushButton(Form)
         self.BtnNst.setGeometry(QtCore.QRect(654, 540, 100, 50))
@@ -74,7 +79,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
-    ui = Ui_Form()
+    ui = Ui_Intro()
     ui.setupUi(Form)
     Form.show()
     sys.exit(app.exec_())
