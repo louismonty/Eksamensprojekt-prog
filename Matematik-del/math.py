@@ -6,6 +6,7 @@ Programmering B 3.4
 """
 import random
 import os
+import time
 
 
 class math_problem:
@@ -89,9 +90,12 @@ def check_solution(user_solution, solution, count, answer):
         return answer
    
 def display_result(total, correct, score):
+    os.system('cls')
+
     if total == 10:
         print("You answered", total, "questions with", correct, "correct.")
         print("Your score is ", score, " Thank you.")
+        time.sleep(5)
         game_loop()
 
 
@@ -188,6 +192,7 @@ def game_loop():
         print("Have a nice day!")
         
     while exit == False:
+
         total += 1
 
         answer = math(total, n, math_type)
@@ -202,16 +207,16 @@ def game_loop():
                     n += 1
                 streak = 0
         else:
-            if streak == 0 or streak == -1:
-                streak -= 1
+            streak -= 1
             if streak == -2:
                 if n == (start_n - 3):
                     n = n
                 else:
                     n -= 1
-            streak = 0
-
+                streak = 0
+        
         score = levels[n].point_score(answer, score)
+        
         display_result(total,correct,score)
 
        
