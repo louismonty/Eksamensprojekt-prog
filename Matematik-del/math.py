@@ -18,8 +18,8 @@ class math_problem:
 
         
     def random_numbers(self):
-        self.number_one = random.randrange(self.x1, self.x2)
-        self.number_two = random.randrange(self.x1, self.x2)
+        self.number_one = random.randrange(self.x1, self.x2 + 1)
+        self.number_two = random.randrange(self.x1, self.x2 + 1)
          
 
     def multiplication(self,count,level):
