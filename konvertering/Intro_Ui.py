@@ -6,19 +6,33 @@
 #
 # WARNING! All changes made in this file will be lost!
 
-
+import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
+from Teori_Variable_1 import Ui_Variabel
 
 class Ui_Intro(object):
-    def open_window_næste(self):
-        Form.close
+    def open_window_naeste(self):
+        Form.close()
         self.window = QtWidgets.QMainWindow()
-        
+        self.ui = Ui_Variabel()
+        self.ui.setupUi(self.window)
+        self.window.show
+    
+    def close_window_Intro(self, event):
+        reply = QMessageBox.question(Form, 'Window close', 'Are you sure you want to close the window?',
+        QMessageBox.Yes | QMessageBox.No, QMessageBox.No)
+
+        if reply == QMessageBox.Yes:
+            event.accept()
+        else:
+            event.ignore()
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(804, 610)
+
+        # Head Label "Programmering - Intro"
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(230, 10, 360, 51))
         font = QtGui.QFont()
@@ -27,9 +41,13 @@ class Ui_Intro(object):
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+
+        # Textbrowser with text 
         self.textBrowser = QtWidgets.QTextBrowser(Form)
-        self.textBrowser.setGeometry(QtCore.QRect(112, 100, 620, 410))
+        self.textBrowser.setGeometry(QtCore.QRect(90, 100, 620, 410))
         self.textBrowser.setObjectName("textBrowser")
+
+        # Button "Næste" 
         self.BtnNst = QtWidgets.QPushButton(Form)
         self.BtnNst.setGeometry(QtCore.QRect(654, 540, 100, 50))
         font = QtGui.QFont()
@@ -37,6 +55,9 @@ class Ui_Intro(object):
         font.setPointSize(20)
         self.BtnNst.setFont(font)
         self.BtnNst.setObjectName("BtnNst")
+        self.BtnNst.clicked.connect(self.open_window_naeste)
+
+        # Button "Forlad"
         self.BtnForlad = QtWidgets.QPushButton(Form)
         self.BtnForlad.setGeometry(QtCore.QRect(352, 540, 100, 50))
         font = QtGui.QFont()
@@ -44,6 +65,9 @@ class Ui_Intro(object):
         font.setPointSize(20)
         self.BtnForlad.setFont(font)
         self.BtnForlad.setObjectName("BtnForlad")
+        self.BtnForlad.clicked.connect(self.close_window_Intro)
+
+        #Button "Tilbae"
         self.BtnTilbage = QtWidgets.QPushButton(Form)
         self.BtnTilbage.setGeometry(QtCore.QRect(50, 540, 100, 50))
         font = QtGui.QFont()
@@ -76,7 +100,6 @@ class Ui_Intro(object):
 
 
 if __name__ == "__main__":
-    import sys
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QWidget()
     ui = Ui_Intro()

@@ -22,12 +22,14 @@ class Ui_MainWindow(object):
         self.window.show()
         
     def open_window_dansk(self):
+        MainWindow.close()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Form()
         self.ui.setupUi(self.window)
         self.window.show()
     
     def open_window_prog(self):
+        MainWindow.close()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Intro()
         self.ui.setupUi(self.window)
@@ -44,17 +46,19 @@ class Ui_MainWindow(object):
         self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.frame.setObjectName("frame")
+
+        # Head label "Læringsplatform"
         self.LblHead = QtWidgets.QLabel(self.frame)
         self.LblHead.setGeometry(QtCore.QRect(260, 10, 280, 61))
         font = QtGui.QFont()
         font.setFamily("Times New Roman")
         font.setPointSize(24)
-        
         self.LblHead.setFont(font)
         self.LblHead.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.LblHead.setAlignment(QtCore.Qt.AlignCenter)
         self.LblHead.setObjectName("LblHead")
         
+        # Button "Matematik"
         self.BtnMat = QtWidgets.QPushButton(self.frame)
         self.BtnMat.setGeometry(QtCore.QRect(310, 160, 180, 51))
         font = QtGui.QFont()
@@ -64,6 +68,7 @@ class Ui_MainWindow(object):
         self.BtnMat.setObjectName("BtnMat")
         self.BtnMat.clicked.connect(self.open_window_mat)
         
+        # Button "Programmering"
         self.BtnProg = QtWidgets.QPushButton(self.frame)
         self.BtnProg.setGeometry(QtCore.QRect(310, 260, 180, 51))
         font = QtGui.QFont()
@@ -73,6 +78,7 @@ class Ui_MainWindow(object):
         self.BtnProg.setObjectName("BtnProg")
         self.BtnProg.clicked.connect(self.open_window_prog)
         
+        # Button "Dansk"
         self.BtnDansk = QtWidgets.QPushButton(self.frame)
         self.BtnDansk.setGeometry(QtCore.QRect(310, 360, 180, 51))
         font = QtGui.QFont()
@@ -82,6 +88,7 @@ class Ui_MainWindow(object):
         self.BtnDansk.setObjectName("BtnDansk")
         self.BtnDansk.clicked.connect(self.open_window_dansk)
         
+        # Button "Folad"
         self.BtnForlad = QtWidgets.QPushButton(self.frame)
         self.BtnForlad.setGeometry(QtCore.QRect(310, 460, 180, 51))
         font = QtGui.QFont()
@@ -90,6 +97,7 @@ class Ui_MainWindow(object):
         self.BtnForlad.setFont(font)
         self.BtnForlad.setObjectName("BtnForlad")
         
+        # Date Label
         self.LblDato = QtWidgets.QLabel(self.centralwidget)
         self.LblDato.setGeometry(QtCore.QRect(10, 550, 781, 20))
         font = QtGui.QFont()
@@ -99,9 +107,9 @@ class Ui_MainWindow(object):
         self.LblDato.setObjectName("LblDato")
         
         MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
-        self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        #self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        #self.statusbar.setObjectName("statusbar")
+        #MainWindow.setStatusBar(self.statusbar)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
