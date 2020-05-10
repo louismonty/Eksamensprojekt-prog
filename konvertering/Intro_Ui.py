@@ -14,7 +14,7 @@ from Teori_Variable_1 import Ui_Variabel
 class Ui_Intro(object):
     
     def open_window_naeste(self):
-        Form.close()
+        #Form.close()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Variabel()
         self.ui.setupUi(self.window)
