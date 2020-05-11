@@ -8,12 +8,22 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Eksempel_Variable_1 import Ui_Variabel_Eksempel
 
 class Ui_Variabel(object):
+
+    def open_window_neaste(self):
+        #Variabel.close()
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_Variabel_Eksempel()
+        self.ui.setupUi(self.window)
+        self.window.show()
+
+
     def setupUi(self, Variabel):
         Variabel.setObjectName("Variabel")
         Variabel.resize(804, 610)
+
         self.label = QtWidgets.QLabel(Variabel)
         self.label.setGeometry(QtCore.QRect(230, 10, 360, 51))
         font = QtGui.QFont()
@@ -22,9 +32,11 @@ class Ui_Variabel(object):
         self.label.setFont(font)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")
+
         self.textBrowser = QtWidgets.QTextBrowser(Variabel)
         self.textBrowser.setGeometry(QtCore.QRect(90, 100, 620, 410))
         self.textBrowser.setObjectName("textBrowser")
+
         self.btnForlad = QtWidgets.QPushButton(Variabel)
         self.btnForlad.setGeometry(QtCore.QRect(352, 540, 100, 50))
         font = QtGui.QFont()
@@ -32,6 +44,7 @@ class Ui_Variabel(object):
         font.setPointSize(20)
         self.btnForlad.setFont(font)
         self.btnForlad.setObjectName("btnForlad")
+
         self.btnNst = QtWidgets.QPushButton(Variabel)
         self.btnNst.setGeometry(QtCore.QRect(654, 540, 100, 50))
         font = QtGui.QFont()
@@ -39,6 +52,8 @@ class Ui_Variabel(object):
         font.setPointSize(20)
         self.btnNst.setFont(font)
         self.btnNst.setObjectName("btnNst")
+        self.btnNst.clicked.connect(self.open_window_neaste)
+
         self.btnTilbage = QtWidgets.QPushButton(Variabel)
         self.btnTilbage.setGeometry(QtCore.QRect(50, 540, 100, 50))
         font = QtGui.QFont()
