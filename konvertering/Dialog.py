@@ -19,7 +19,8 @@ class Ui_Form(object):
             chosen = tekst[int(random.uniform(0,len(tekst)))]
 
             chosen_p=""
-
+            
+            vokaler = ["a","e","i","o","u","y"]
             for i in chosen:
                 if i in vokaler:
                     chosen_p+="_"
@@ -118,7 +119,7 @@ class Ui_Form(object):
         self.pushButton.setText(_translate("Form", "svar"))
         self.label.setText(_translate("Form", self.text))
         self.pushButton_dif.setText(_translate("Form", "nem"))
-        self.pushButton_dif_2.setText(_translate("Form", "normal"))
+        self.pushButton_dif_2.setText(_translate("Form", "mellem"))
         self.pushButton_dif_3.setText(_translate("Form", "svær"))
 
 
