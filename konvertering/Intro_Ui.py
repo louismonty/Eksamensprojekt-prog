@@ -12,12 +12,13 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QMessageBox)
 from Teori_Variable_1 import Ui_Variabel
 
 class Ui_Intro(object):
+    
     def open_window_naeste(self):
-        Form.close()
+        #Form.close()
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Variabel()
         self.ui.setupUi(self.window)
-        self.window.show
+        self.window.show()
     
     def close_window_Intro(self, event):
         reply = QMessageBox.question(Form, 'Window close', 'Are you sure you want to close the window?',
@@ -27,6 +28,7 @@ class Ui_Intro(object):
             event.accept()
         else:
             event.ignore()
+
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
