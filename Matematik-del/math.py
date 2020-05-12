@@ -4,6 +4,7 @@ HTX Roskilde
 Programmering B 3.4
 
 """
+# Imports
 import random
 import os
 import time
@@ -18,15 +19,21 @@ class math_problem:
 
         
     def random_numbers(self):
+        #2 random numbers 
         self.number_one = random.randrange(self.x1, self.x2 + 1)
         self.number_two = random.randrange(self.x1, self.x2 + 1)
          
 
     def multiplication(self,count,level):
+        # Get random numbers
         self.random_numbers()
+        # Make possible to print the math problem
         problem = str(self.number_one) + " * " + str(self.number_two)
+        # Calulate the correct answer
         solution = self.number_one * self.number_two
+        # Get user input
         user_solution = get_user_solution(problem)
+        # Check if user inpu is correct
         answer = check_solution(user_solution, solution, count, self.answer)       
         return answer
 
@@ -47,10 +54,12 @@ class math_problem:
         return answer
 
     def point_score(self, answer,score):
+        # Update point score if user input is correct
         if answer == True:
             score += self.point
             return score
         else:
+            # if not the score is unchanged 
             return score
 
 # Defines level
@@ -71,17 +80,31 @@ level_14 = math_problem(12,17,3.50)
 level_15 = math_problem(13,18,3.75)
 
 
-
+# List with all the levels
 levels =[level_1,level_2, level_3, level_4, level_5,
         level_6, level_7, level_8, level_9, level_10,
         level_11, level_12, level_13, level_14, level_15]
 
 def get_user_solution(problem):
+    # Print math problem
     print(problem, end="")
+    # user input as a integer
     result = int(input(" = "))
     return result
 
+def get_user_input(x):
+    #Get input to menu
+    user_input = int(input("Enter your choice: "))
+    #Check if its a possibel answer
+    while user_input > x or user_input <= 0:
+        print("Invalid menu option.")
+        user_input = int(input("Please try again: "))
+    else:    
+        return user_input
+
+
 def check_solution(user_solution, solution, count, answer):
+    # Check if user input is correct
     if user_solution == solution:
         answer = True
         return answer
@@ -90,9 +113,12 @@ def check_solution(user_solution, solution, count, answer):
         return answer
    
 def display_result(total, correct, score):
+    #clear terminal
     os.system('cls')
 
+    # The user get 10 math problems.
     if total == 10:
+        #Show the score to the user
         print("You answered", total, "questions with", correct, "correct.")
         print("Your score is ", score, " Thank you.")
         time.sleep(5)
@@ -106,7 +132,10 @@ def display_result(total, correct, score):
 
 
 def start_menu():
+    #clear terminal
     os.system('cls')
+
+    # Check if user wants to start the game
     print("1. Start game")
     print("2. Exit game")
     option = get_user_input(2)
@@ -119,7 +148,10 @@ def start_menu():
     
     
 def math_menu():
+    #clear terminal
     os.system('cls')
+
+    # User can choose type of math problems
     print("1. Multiply")
     print("2. Subtracting")
     print("3. multiplication")
@@ -136,6 +168,7 @@ def math_menu():
 
 
 def math(total, n, dif):
+    # Set correct type of math problem and level
     if dif == "multiply":
         answer = levels[n].multiply(total,n)
     elif dif == "subtracting":
@@ -146,12 +179,16 @@ def math(total, n, dif):
     
 
 def difficulty_menu():
+    #clear terminal 
     os.system('cls')
+
+    # User can choose difficulty
     print("1. Easy")
     print("2. Normal")
     print("3. Hard")
 
     level = get_user_input(3)
+    #Set n value 
     if level == 1:
         n = 4
     elif level == 2:
@@ -161,13 +198,7 @@ def difficulty_menu():
     return n
 
 
-def get_user_input(x):
-    user_input = int(input("Enter your choice: "))
-    while user_input > x or user_input <= 0:
-        print("Invalid menu option.")
-        user_input = int(input("Please try again: "))
-    else:    
-        return user_input
+
 
 
 # ==============================================================================
@@ -175,15 +206,17 @@ def get_user_input(x):
 # ==============================================================================
 
 def game_loop():
-    
+    # Varibels are 0 
     total = 0
     correct = 0
     streak = 0
     score = 0
 
+    #Check if user wants to exit
     exit = start_menu()
     
     if exit == False:
+        # Get necessary information to start the game
         math_type = math_menu()
         n = difficulty_menu()
         start_n = n
@@ -191,36 +224,43 @@ def game_loop():
     else:
         print("Have a nice day!")
         
-    while exit == False:
 
+    while exit == False:
+        #update total value
+        # total is equal to the number of math questions
         total += 1
 
+        # Print math problem and compare to user input
         answer = math(total, n, math_type)
          
         if answer == True:
+            # Update streak and correct
             streak += 1
             correct += 1
             if streak == 2:
+                #update level
                 if n == (start_n + 3):
+                    # start_n +3 is max level, so level is unchanged
                     n = n
                 else:
                     n += 1
                 streak = 0
         else:
+            
             streak -= 1
+            # Check if user need to go down in level
             if streak == -2:
                 if n == (start_n - 3):
+                    # start_n - 3 is min level, so level is unchanged
                     n = n
                 else:
                     n -= 1
                 streak = 0
-        
+        # Update score
         score = levels[n].point_score(answer, score)
         
+        #check if user is done
         display_result(total,correct,score)
 
-       
-     
-    
-     
+        
 game_loop()
