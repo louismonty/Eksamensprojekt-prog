@@ -11,17 +11,17 @@ import time
 
 
 class math_problem:
-    def __init__(self,x1, x2, point):
-        self.x1 = x1
-        self.x2 = x2
+    def __init__(self,min_range, max_range, point):
+        self.min_range= min_range
+        self.max_range = max_range
         self.point = point
         self.answer = False
 
         
     def random_numbers(self):
         #2 random numbers 
-        self.number_one = random.randrange(self.x1, self.x2 + 1)
-        self.number_two = random.randrange(self.x1, self.x2 + 1)
+        self.number_one = random.randrange(self.min_range, self.max_range + 1)
+        self.number_two = random.randrange(self.min_range, self.max_range + 1)
          
 
     def multiplication(self,count,level):
